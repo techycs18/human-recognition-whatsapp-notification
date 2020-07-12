@@ -14,13 +14,12 @@ The project is made with real-life implementation perspective. The basic idea be
 
   ###### Not compulsory(given below), but pior knowledge would be beneficial 
   - Caffe-Based Deep Learning models 
-  - OpenCV 
+  - OpenCV for Python
 
 #### Installations :
 > - [Install Python](https://www.python.org/downloads/)<br/>
 > - [Install OpenCV for windows](https://docs.opencv.org/master/d5/de5/tutorial_py_setup_in_windows.html) <br/>
 > - [Install OpenCV for Ubuntu](https://docs.opencv.org/master/d2/de6/tutorial_py_setup_in_ubuntu.html) <br/>
-
 > - pip install twilio <br/>
 > - pip install imutils <br/>
 > - pip install numpy <br/>
@@ -69,7 +68,7 @@ So inside`conf.json` do:
   
  ```
  
--Also, create an empty folder named `output` (look at the directory structure for reference). This file will store all the embeddings and our trained model
+- Also, create an empty folder named `output` (look at the directory structure for reference). This file will store all the embeddings and our trained model
 
 ###### NOTE :
 - Before running the python code you need to set two environement variable. To do so run (always re-run it when you shutdown your local-machine and log in next time) the two lines given below in terminal/console one by one:
