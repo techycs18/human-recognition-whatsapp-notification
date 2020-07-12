@@ -5,13 +5,16 @@ The project is made with real-life implementation perspective. The basic idea be
 `@ Date Month Year HH:MM AM/PM` <br/>
 
 #### Prerequisites
-- Python Programming Language
-- JSON
-- OpenCV
-- Machine Learning algorithm
-- Convolutional Neural Network 
-- Caffe-Based Deep Learning models
- 
+  ###### Required
+  - Python Programming Language (required)
+  - JSON (required)
+  - Machine Learning algorithm (required)
+  - Convolutional Neural Network 
+
+  ###### Not compulsory, but pior knowledge would be beneficial
+  - Caffe-Based Deep Learning models 
+  - OpenCV 
+
 #### Installations
 > [Install Python](https://www.python.org/downloads/)<br/>
 > [Install OpenCV for windows](https://docs.opencv.org/master/d5/de5/tutorial_py_setup_in_windows.html) <br/>
@@ -21,3 +24,10 @@ The project is made with real-life implementation perspective. The basic idea be
 > pip install imutils <br/>
 > pip install numpy <br/>
 > pip install -U scikit-learn <br/>
+
+
+#### Authors
+- Chaitanya Sonavane
+
+#### Acknowledments
+- [Adrian Rosebrock](https://www.pyimagesearch.com/)
