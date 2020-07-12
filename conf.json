@@ -1,0 +1,42 @@
+{
+	"show_video": true,
+	"min_time_gap": 480,
+	"max_captures": 3,
+	"camera_warmup_time": 2.0,
+	"delta_thresh": 5,
+	"fps": 32,
+	"min_area": 3000,
+	"min_confidence": 0.55,
+
+	"FROM_NUMBER": "whatsapp:+14155238886",
+	"TO_NUMBER": "whatsapp:+xxxxxxxxxxx",
+
+	"dataset": "my_dataset",
+	"embeddings": "output/embeddings.pickle",
+	"detector": "face_detection_model",
+	"embedding_model": "openface_nn4.small2.v1.t7",
+	"recognizer": "output/recognizer.pickle",
+	"le": "output/le.pickle",
+	"image_path": "motions_caught",
+
+	"details_json" :{
+		"perosn1": {
+			"timestamp": 0,
+			"captures": 0,
+			"total_capture": 0,
+			"image_sent": false
+		},
+		"person2": {
+			"timestamp": 0,
+			"captures": 0,
+			"total_capture": 0,
+			"image_sent": false
+		},
+		"person3": {
+			"timestamp": 0,
+			"captures": 0,
+			"total_capture": 0,
+			"image_sent": false
+		}
+	}
+}
