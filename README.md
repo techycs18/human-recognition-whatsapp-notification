@@ -31,10 +31,13 @@ The project is made with real-life implementation perspective. The basic idea be
 For proper execution of this project keep the files in proper given structure
 
 #### Procedure
-###### 3 steps
+###### 3 steps -
 - Step-1, Use OpenCV face detector model to detect face from each input image and use OpenCV embedder model to extract the 128-d face embeddings for each image
 - Step-2, We pass these 128-d embeddings of each iamge through Linear SVM classifier to train it and use it as a recognizer model in step-3
-- Step-3, If motion is detected in the videostrame, we take the frame detect face, extract 128-d embeddings and then pass this embeddings through our recognizer model. Based on the recognizer predictions we recognise whose face it was. If recognise anyone from our dataset it saves the frames and sends a whatsapp notification to a verified number and if unknwon face is detected we just ignore it.   
+- Step-3, If motion is detected in the videostrame, we take the frame detect face, extract 128-d embeddings and then pass this embeddings through our recognizer model
+	- Based on the recognizer predictions we recognise whose face it was.
+	- If recognise anyone from our dataset it saves the frames and sends a whatsapp notification to a verified number
+	- Id unknwon face is detected we just ignore it.   
 
 #### Setup :
 - Collect atleast 45 photos of a each person of whom the recognition are to be performed. Inside `my_dataset` directory create folders with name of the each individual and place thier images(atleast 45 each) inside them
