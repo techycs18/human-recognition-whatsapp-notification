@@ -211,8 +211,8 @@ vs.stop()
 
 # -------------After every restart of the local machine execute the below
 # only once before the run command--------------------
-# export TWILIO_ACCOUNT_SID='ACfc95495fa8cb6cb82bbc3cf77d96a43f'
-# export TWILIO_AUTH_TOKEN='596cc9a0cf66d07ce546048870617856'
+# export TWILIO_ACCOUNT_SID='YOUR_TWILIO_ACCOUNT_SID'
+# export TWILIO_AUTH_TOKEN='YOUR_TWILIO_AUTH_TOKEN'
 
 # ---------------Run Command-----------
 # python faceRecognition_notification.py
