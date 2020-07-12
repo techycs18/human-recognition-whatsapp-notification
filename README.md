@@ -68,6 +68,9 @@ So inside`conf.json` do:
 	}
   
  ```
+ 
+-Also, create an empty folder named `output` (look at the directory structure for reference). This file will store all the embeddings and our trained model
+
 ###### NOTE :
 - Before running the python code you need to set two environement variable. To do so run (always re-run it when you shutdown your local-machine and log in next time) the two lines given below in terminal/console one by one:
 ```
@@ -75,7 +78,6 @@ export TWILIO_ACCOUNT_SID='COPY_YOUR_TWILIO_ACCOUNT_SID'
 export TWILIO_AUTH_TOKEN='COPY_TWILIO_AUTH_TOKEN'
 ```
 This will make sure twilio whatsapp API to work properly on our local-machine. For TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN refer [Twilio Console](https://www.twilio.com/console)(Create twilio account if not created already)
-
 - Once all the setup is done run the following in sequence:
 ```
 python face_extract_embedding.py
