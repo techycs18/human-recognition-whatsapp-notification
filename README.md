@@ -39,6 +39,7 @@ For proper execution of this project keep the files in proper given structure
 	- Id unknwon face is detected we just ignore it.   
 
 #### Setup :
+- Make a directory with name `my_dataset`
 - Collect atleast 45 photos of a each person of whom the recognition are to be performed. Inside `my_dataset` directory create folders with name of the each individual and place thier images(atleast 45 each) inside them
 - Now inside `my_dataset` directory create one more folder with name as `unknown` and inside this folder place different 20-25 images of random people (celebrities/friends/images who are not to be recognised) 
 - Once folders created, inside `conf.json` file replace the `xyz_person` with person name. The person name in `conf.json` and folder name where the images are located should exactly be same(case-sensitive).
