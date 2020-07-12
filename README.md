@@ -27,7 +27,7 @@ The project is made with real-life implementation perspective. The basic idea be
 > - pip install -U scikit-learn <br/>
 
 #### Directory structure :
-![Directory structure](https://github.com/techycs18/whats-notification-on-face_recognition/blob/master/directory_structure.png) <br/>
+![Directory structure](https://github.com/techycs18/face-recognition-whatsapp-notification/blob/master/directory_structure.png) <br/>
 For proper execution of this project keep the files in proper given structure
 
 #### Procedure
