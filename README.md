@@ -4,27 +4,27 @@ The project is made with real-life implementation perspective. The basic idea be
 `Last seen: NAME` <br/>
 `@ Date Month Year HH:MM AM/PM` <br/>
 
-#### Prerequisites
-  ###### Required :
+#### Prerequisites :
+  ###### Required 
   - Python Programming Language 
   - JavaScript Object Notation(JSON)
   - Machine Learning algorithms
   - Convolutional Neural Network 
   - [Twilio Account](https://www.twilio.com/)
 
-  ###### Not compulsory(given below), but pior knowledge would be beneficial :
+  ###### Not compulsory(given below), but pior knowledge would be beneficial 
   - Caffe-Based Deep Learning models 
   - OpenCV 
 
 #### Installations :
-> [Install Python](https://www.python.org/downloads/)<br/>
-> [Install OpenCV for windows](https://docs.opencv.org/master/d5/de5/tutorial_py_setup_in_windows.html) <br/>
-> [Install OpenCV for Ubuntu](https://docs.opencv.org/master/d2/de6/tutorial_py_setup_in_ubuntu.html) <br/>
+> - [Install Python](https://www.python.org/downloads/)<br/>
+> - [Install OpenCV for windows](https://docs.opencv.org/master/d5/de5/tutorial_py_setup_in_windows.html) <br/>
+> - [Install OpenCV for Ubuntu](https://docs.opencv.org/master/d2/de6/tutorial_py_setup_in_ubuntu.html) <br/>
 
-> pip install twilio <br/>
-> pip install imutils <br/>
-> pip install numpy <br/>
-> pip install -U scikit-learn <br/>
+> - pip install twilio <br/>
+> - pip install imutils <br/>
+> - pip install numpy <br/>
+> - pip install -U scikit-learn <br/>
 
 #### Directory structure :
 ![Directory structure](https://github.com/techycs18/whats-notification-on-face_recognition/blob/master/directory_structure.png) <br/>
