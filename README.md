@@ -74,7 +74,7 @@ So inside`conf.json` do:
 export TWILIO_ACCOUNT_SID='COPY_YOUR_TWILIO_ACCOUNT_SID'
 export TWILIO_AUTH_TOKEN='COPY_TWILIO_AUTH_TOKEN'
 ```
-This is needed inorder for twilio whatsapp API to work properly. For TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN refer [Twilio Console](https://www.twilio.com/console)(Create twilio account if not created already)
+This will make sure twilio whatsapp API to work properly on our local-machine. For TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN refer [Twilio Console](https://www.twilio.com/console)(Create twilio account if not created already)
 
 - Once all the setup is done run the following in sequence:
 ```
