@@ -39,9 +39,9 @@ For proper execution of this project keep the files in proper given structure
 	- Id unknwon face is detected we just ignore it.   
 
 #### Setup :
-- Make a directory with name `my_dataset`
-- Collect atleast 45 photos of a each person of whom the recognition are to be performed. Inside `my_dataset` directory create folders with name of the each individual and place thier images(atleast 45 each) inside them
-- Now inside `my_dataset` directory create one more folder with name as `unknown` and inside this folder place different 20-25 images of random people (celebrities/friends/images who are not to be recognised) 
+- Make a two empty different empty directories with name `my_dataset` and `motions_caught`
+- Collect atleast 35-40 photos of a each person of whom the recognition are to be performed. Inside `my_dataset` directory create folders with name of the each individual and place thier images(atleast 45 each) inside them
+- Now inside `my_dataset` directory create one more folder with name as `unknown` and inside this folder place different 35-40 images of random people (celebrities/friends/images who are not to be recognised) 
 - Once folders created, inside `conf.json` file replace the `xyz_person` with person name. The person name in `conf.json` and folder name where the images are located should exactly be same(case-sensitive).
 - But, if you want to perfrom multiple face-recognistions, then add more people.For example we have three people of whom face is to be detected and their names are `xyz1, xyz2 and xyz3`<br/>
 So inside`conf.json` do:
@@ -73,10 +73,13 @@ So inside`conf.json` do:
 
 ###### NOTE :
 - Before running the python code you need to set two environement variable. To do so run (always re-run it when you shutdown your local-machine and log in next time) the two lines given below in terminal/console one by one:
+- For Linux run code given below and for other OS: [check here](https://www.twilio.com/blog/2017/01/how-to-set-environment-variables.html):
 ```
 export TWILIO_ACCOUNT_SID='COPY_YOUR_TWILIO_ACCOUNT_SID'
 export TWILIO_AUTH_TOKEN='COPY_TWILIO_AUTH_TOKEN'
 ```
+
+
 - This will make sure twilio whatsapp API to work properly on our local-machine. For TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN refer [Twilio Console](https://www.twilio.com/console)(Create twilio account if not created already)
 - Also change the `TO_NUMBER` in `conf.json` to the phone number you wish to recieve msg on.
 - You first need to connect that number to twilio via [Twilio Testing Sandbox](https://www.twilio.com/console/sms/whatsapp/learn)(see: Set Up Your Testing Sandbox)
