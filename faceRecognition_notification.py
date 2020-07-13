@@ -210,7 +210,7 @@ vs.stop()
 
 
 # -------------After every restart of the local machine execute the below
-# only once before the run command--------------------
+# only once before the run command (For Linux)--------------------
 # export TWILIO_ACCOUNT_SID='YOUR_TWILIO_ACCOUNT_SID'
 # export TWILIO_AUTH_TOKEN='YOUR_TWILIO_AUTH_TOKEN'
 
