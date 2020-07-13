@@ -39,11 +39,11 @@ For proper execution of this project keep the files in proper given structure
 	- If unknwon face is detected we just ignore it.   
 
 #### Setup :
-- Make a two empty different empty directories with name `my_dataset` and `motions_caught`
-- Collect atleast 35-40 photos of a each person of whom the recognition are to be performed. Inside `my_dataset` directory create folders with name of the each individual and place thier images(atleast 45 each) inside them
+- Make a two different empty directories with name `my_dataset` and `motions_caught`
+- Collect atleast 35-40 photos of a each person of whom the recognition is to be performed. Inside `my_dataset` directory create folders with name of the each individual and place thier images(atleast 45 each) inside them
 - Now inside `my_dataset` directory create one more folder with name as `unknown` and inside this folder place different 35-40 images of random people (celebrities/friends/images who are not to be recognised) 
 - Once folders created, inside `conf.json` file replace the `xyz_person` with person name. The person name in `conf.json` and folder name where the images are located should exactly be same(case-sensitive).
-- But, if you want to perfrom multiple face-recognistions, then add more people.For example we have three people of whom face is to be detected and their names are `xyz1, xyz2 and xyz3`<br/>
+- But, if you want to perfrom multiple face-recognitions, then add more people.For example we have three people of whom face is to be detected and their names are `xyz1, xyz2 and xyz3`<br/>
 So inside`conf.json` do:
  ```
  "details_json" :{
