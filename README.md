@@ -35,8 +35,8 @@ For proper execution of this project keep the files in proper given structure
 - Step-2, We pass these 128-d embeddings of each iamge through Linear SVM classifier to train it and use it as a recognizer model in step-3
 - Step-3, If motion is detected in the videostrame, we take the frame detect face, extract 128-d embeddings and then pass this embeddings through our recognizer model
 	- Based on the recognizer predictions we recognise whose face it was.
-	- If recognise anyone from our dataset it saves the frames and sends a whatsapp notification to a verified number
-	- Id unknwon face is detected we just ignore it.   
+	- It recognise anyone from our dataset(as it was trained on those images) it saves the frames and sends a whatsapp notification to a verified number
+	- If unknwon face is detected we just ignore it.   
 
 #### Setup :
 - Make a two empty different empty directories with name `my_dataset` and `motions_caught`
