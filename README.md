@@ -23,6 +23,8 @@ The project is made with real-life implementation perspective. The basic idea be
 > - pip install numpy <br/>
 > - pip install -U scikit-learn <br/>
 
+### Directory Structure:
+![-](https://github.com/techycs18/face-recognition-whatsapp-notification/blob/master/Directory_Structure.png)
 
 #### Procedure
 ###### 3 steps -
