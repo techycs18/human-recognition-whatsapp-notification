@@ -77,6 +77,7 @@ export TWILIO_AUTH_TOKEN='COPY_TWILIO_AUTH_TOKEN'
 
 - Once all the setup is done run the following in sequence:
 ```
+python util.py
 python face_extract_embedding.py
 python train_model.py
 python faceRecognition_notification.py
