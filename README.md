@@ -19,6 +19,7 @@ The project is made with real-life implementation perspective. The basic idea be
 > - [Install Python](https://www.python.org/downloads/)<br/>
 > - [Install OpenCV for windows](https://docs.opencv.org/master/d5/de5/tutorial_py_setup_in_windows.html) <br/>
 > - [Install OpenCV for Ubuntu](https://docs.opencv.org/master/d2/de6/tutorial_py_setup_in_ubuntu.html) <br/>
+Execute the following in terminal
 > - pip install twilio <br/>
 > - pip install numpy <br/>
 > - pip install -U scikit-learn <br/>
