@@ -34,7 +34,7 @@ The project is made with real-life implementation perspective. The basic idea be
 	- If unknwon face is detected we just ignore it.   
 
 #### Setup :
-1. Make two different empty folders with name `my_dataset` and `motions_caught` inside `face-recognition-whatsapp-notification` directory
+1. Make two different folders with name `my_dataset` and `motions_caught` inside `face-recognition-whatsapp-notification` directory
 2. Inside `my_dataset` directory create folders with name of the each individual and place thier images(atleast 35-40 each person of whom the recognition is to be performed) inside them
 3. Now inside `my_dataset` directory create one more folder with name as `unknown` and inside this folder place different 35-40 images of random people (celebrities/friends/images who are not to be recognised) 
 4. Once folders created, in python file `faceRecognition_notification.py` check the `details_json` instance variable of `class Activities`. Replace the `person1_name` json oject with the name of the person(the name should be same as done in step 2 and also it is case-sensitive)
