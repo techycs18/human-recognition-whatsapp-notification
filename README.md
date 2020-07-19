@@ -64,7 +64,7 @@ The project is made with real-life implementation perspective. The basic idea be
 
 ###### NOTE :
 - Before running the python code you need to set two environement variable. To do so run (always re-run it when you shutdown your local-machine and log in next time) the two lines given below in terminal/console one by one:
-- For Linux run code given below: (for other OS[check here])(https://www.twilio.com/blog/2017/01/how-to-set-environment-variables.html):
+- For Linux run code given below: (for other OS [check here](https://www.twilio.com/blog/2017/01/how-to-set-environment-variables.html)):
 ```
 export TWILIO_ACCOUNT_SID='COPY_YOUR_TWILIO_ACCOUNT_SID'
 export TWILIO_AUTH_TOKEN='COPY_TWILIO_AUTH_TOKEN'
