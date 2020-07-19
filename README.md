@@ -23,9 +23,6 @@ The project is made with real-life implementation perspective. The basic idea be
 > - pip install numpy <br/>
 > - pip install -U scikit-learn <br/>
 
-#### Directory structure :
-![Directory structure](https://github.com/techycs18/face-recognition-whatsapp-notification/blob/master/directory_structure.png) <br/>
-For proper execution of this project keep the files in proper given structure
 
 #### Procedure
 ###### 3 steps -
@@ -60,7 +57,7 @@ For proper execution of this project keep the files in proper given structure
 	}
  
  ```
-- Also, create an empty folder named `output` (look at the directory structure for reference). This file will store all the embeddings and our trained model
+- Also, create an empty folder named `output`. This file will store all the embeddings and our trained model
 
 ###### NOTE :
 - Before running the python code you need to set two environement variable. To do so run (always re-run it when you shutdown your local-machine and log in next time) the two lines given below in terminal/console one by one:
