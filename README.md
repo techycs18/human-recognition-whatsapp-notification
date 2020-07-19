@@ -7,7 +7,6 @@ The project is made with real-life implementation perspective. The basic idea be
 #### Prerequisites :
   ###### Required 
   - Python Programming Language 
-  - JavaScript Object Notation(JSON)
   - Machine Learning algorithms
   - Convolutional Neural Network 
   - [Twilio Account](https://www.twilio.com/)
@@ -21,7 +20,6 @@ The project is made with real-life implementation perspective. The basic idea be
 > - [Install OpenCV for windows](https://docs.opencv.org/master/d5/de5/tutorial_py_setup_in_windows.html) <br/>
 > - [Install OpenCV for Ubuntu](https://docs.opencv.org/master/d2/de6/tutorial_py_setup_in_ubuntu.html) <br/>
 > - pip install twilio <br/>
-> - pip install imutils <br/>
 > - pip install numpy <br/>
 > - pip install -U scikit-learn <br/>
 
@@ -33,42 +31,35 @@ For proper execution of this project keep the files in proper given structure
 ###### 3 steps -
 - Step-1, Use OpenCV face detector model to detect face from each input image and use OpenCV embedder model to extract the 128-d face embeddings for each image
 - Step-2, We pass these 128-d embeddings of each iamge through Linear SVM classifier to train it and use it as a recognizer model in step-3
-- Step-3, If motion is detected in the videostrame, we take the frame detect face, extract 128-d embeddings and then pass this embeddings through our recognizer model
+- Step-3, We take the frames of face detected, extract 128-d embeddings and then pass this embeddings through our recognizer model
 	- Based on the recognizer predictions we recognise whose face it was.
 	- It recognise anyone from our dataset(as it was trained on those images) it saves the frames and sends a whatsapp notification to a verified number
 	- If unknwon face is detected we just ignore it.   
 
 #### Setup :
-- Make a two different empty directories with name `my_dataset` and `motions_caught`
-- Collect atleast 35-40 photos of a each person of whom the recognition is to be performed. Inside `my_dataset` directory create folders with name of the each individual and place thier images(atleast 45 each) inside them
-- Now inside `my_dataset` directory create one more folder with name as `unknown` and inside this folder place different 35-40 images of random people (celebrities/friends/images who are not to be recognised) 
-- Once folders created, inside `conf.json` file replace the `xyz_person` with person name. The person name in `conf.json` and folder name where the images are located should exactly be same(case-sensitive).
-- But, if you want to perfrom multiple face-recognitions, then add more people.For example we have three people of whom face is to be detected and their names are `xyz1, xyz2 and xyz3`<br/>
-So inside`conf.json` do:
+1. Make two different empty folders with name `my_dataset` and `motions_caught` inside `face-recognition-whatsapp-notification` directory
+2. Inside `my_dataset` directory create folders with name of the each individual and place thier images(atleast 35-40 each person of whom the recognition is to be performed) inside them
+3. Now inside `my_dataset` directory create one more folder with name as `unknown` and inside this folder place different 35-40 images of random people (celebrities/friends/images who are not to be recognised) 
+4. Once folders created, in python file `faceRecognition_notification.py` check the `details_json` instance variable of `class Activities`. Replace the `person1_name` json oject with the name of the person(the name should be same as done in step 2 and also it is case-sensitive)
+5. Consider you want to person detection for two people named as `amitabh` and `yash` 
+6. So inside constructure we would replace `person1_name` and `person2_name` with the following:
  ```
  "details_json" :{
-		"xyz1": {
+		"amitabh": {
 			"timestamp": 0,
 			"captures": 0,
 			"total_capture": 0,
 			"image_sent": false
 		},
-		"xyz2": {
-			"timestamp": 0,
-			"captures": 0,
-			"total_capture": 0,
-			"image_sent": false
-		},
-    	"xyz3": {
+		"yash": {
 			"timestamp": 0,
 			"captures": 0,
 			"total_capture": 0,
 			"image_sent": false
 		}
 	}
-  
- ```
  
+ ```
 - Also, create an empty folder named `output` (look at the directory structure for reference). This file will store all the embeddings and our trained model
 
 ###### NOTE :
