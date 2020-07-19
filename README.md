@@ -14,13 +14,12 @@ The project is made with real-life implementation perspective. The basic idea be
 
   ###### Not compulsory(given below), but pior knowledge would be beneficial 
   - Caffe-Based Deep Learning models 
-  - OpenCV 
+  - OpenCV for Python
 
 #### Installations :
 > - [Install Python](https://www.python.org/downloads/)<br/>
 > - [Install OpenCV for windows](https://docs.opencv.org/master/d5/de5/tutorial_py_setup_in_windows.html) <br/>
 > - [Install OpenCV for Ubuntu](https://docs.opencv.org/master/d2/de6/tutorial_py_setup_in_ubuntu.html) <br/>
-
 > - pip install twilio <br/>
 > - pip install imutils <br/>
 > - pip install numpy <br/>
@@ -36,14 +35,15 @@ For proper execution of this project keep the files in proper given structure
 - Step-2, We pass these 128-d embeddings of each iamge through Linear SVM classifier to train it and use it as a recognizer model in step-3
 - Step-3, If motion is detected in the videostrame, we take the frame detect face, extract 128-d embeddings and then pass this embeddings through our recognizer model
 	- Based on the recognizer predictions we recognise whose face it was.
-	- If recognise anyone from our dataset it saves the frames and sends a whatsapp notification to a verified number
-	- Id unknwon face is detected we just ignore it.   
+	- It recognise anyone from our dataset(as it was trained on those images) it saves the frames and sends a whatsapp notification to a verified number
+	- If unknwon face is detected we just ignore it.   
 
 #### Setup :
-- Collect atleast 45 photos of a each person of whom the recognition are to be performed. Inside `my_dataset` directory create folders with name of the each individual and place thier images(atleast 45 each) inside them
-- Now inside `my_dataset` directory create one more folder with name as `unknown` and inside this folder place different 20-25 images of random people (celebrities/friends/images who are not to be recognised) 
+- Make a two different empty directories with name `my_dataset` and `motions_caught`
+- Collect atleast 35-40 photos of a each person of whom the recognition is to be performed. Inside `my_dataset` directory create folders with name of the each individual and place thier images(atleast 45 each) inside them
+- Now inside `my_dataset` directory create one more folder with name as `unknown` and inside this folder place different 35-40 images of random people (celebrities/friends/images who are not to be recognised) 
 - Once folders created, inside `conf.json` file replace the `xyz_person` with person name. The person name in `conf.json` and folder name where the images are located should exactly be same(case-sensitive).
-- But, if you want to perfrom multiple face-recognistions, then add more people.For example we have three people of whom face is to be detected and their names are `xyz1, xyz2 and xyz3`<br/>
+- But, if you want to perfrom multiple face-recognitions, then add more people.For example we have three people of whom face is to be detected and their names are `xyz1, xyz2 and xyz3`<br/>
 So inside`conf.json` do:
  ```
  "details_json" :{
@@ -68,13 +68,21 @@ So inside`conf.json` do:
 	}
   
  ```
+ 
+- Also, create an empty folder named `output` (look at the directory structure for reference). This file will store all the embeddings and our trained model
+
 ###### NOTE :
 - Before running the python code you need to set two environement variable. To do so run (always re-run it when you shutdown your local-machine and log in next time) the two lines given below in terminal/console one by one:
+- For Linux run code given below and for other OS: [check here](https://www.twilio.com/blog/2017/01/how-to-set-environment-variables.html):
 ```
 export TWILIO_ACCOUNT_SID='COPY_YOUR_TWILIO_ACCOUNT_SID'
 export TWILIO_AUTH_TOKEN='COPY_TWILIO_AUTH_TOKEN'
 ```
-This will make sure twilio whatsapp API to work properly on our local-machine. For TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN refer [Twilio Console](https://www.twilio.com/console)(Create twilio account if not created already)
+
+
+- This will make sure twilio whatsapp API to work properly on our local-machine. For TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN refer [Twilio Console](https://www.twilio.com/console)(Create twilio account if not created already)
+- Also change the `TO_NUMBER` in `conf.json` to the phone number you wish to recieve msg on.
+- You first need to connect that number to twilio via [Twilio Testing Sandbox](https://www.twilio.com/console/sms/whatsapp/learn)(see: Set Up Your Testing Sandbox)
 
 - Once all the setup is done run the following in sequence:
 ```
