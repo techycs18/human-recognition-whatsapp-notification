@@ -4,11 +4,8 @@ from sklearn.svm import SVC
 import pickle
 import json
 
-# Load or JSON Configuration File
-conf = json.load(open('conf.json'))
-
 print("[EXEC] Loading face embeddings...")
-data = pickle.loads(open(conf["embeddings"], "rb").read())
+data = pickle.loads(open("output/embeddings.pickle", "rb").read())
 
 # Encode the labels
 print("[EXEC] Encoding labels...")
@@ -20,12 +17,12 @@ recognizer = SVC(C=10.0, kernel="poly", degree=7, probability=True)
 recognizer.fit(data["embeddings"], labels)
 
 # Save the Face Recognizer Model
-f = open(conf["recognizer"], "wb")
+f = open("output/recognizer.pickle", "wb")
 f.write(pickle.dumps(recognizer))
 f.close()
 
 # Save the Label encoder model
-f = open(conf["le"], "wb")
+f = open("output/le.pickle", "wb")
 f.write(pickle.dumps(le))
 f.close()
 

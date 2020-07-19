@@ -1,30 +1,25 @@
-# Necessary imports
-from imutils import paths
+from util import list_files
 import numpy as np
-import imutils
 import pickle
-import json
 import cv2
 import os
 
-# Load or JSON Configuration File
-conf = json.load(open('conf.json'))
+MIN_CONFIDENCE = 0.55
 
-# Path to detector folder and the model
-protoPath = os.path.sep.join([conf["detector"], "deploy.prototxt"])
-modelPath = os.path.sep.join([conf["detector"], "res10_300x300_ssd_iter_140000.caffemodel"])
 # Load the OpenCV’s Caffe-based deep learning face detector model
 print("[EXEC] Loading face detector model...")
-detector = cv2.dnn.readNetFromCaffe(protoPath, modelPath)
+detector = cv2.dnn.readNetFromCaffe("face_detection_model/deploy.prototxt",
+                                    "face_detection_model/res10_300x300_ssd_iter_140000.caffemodel")
 
 # Load the embbeder model to extract a 128-D facial embedding vector
 # It contains the OpenCV deep learning Torch embedding model.
 print("[EXEC] Loading face recognizer model...")
-embedder = cv2.dnn.readNetFromTorch(conf["embedding_model"])
+embedder = cv2.dnn.readNetFromTorch("openface_nn4.small2.v1.t7")
 
 print("[EXEC] Reading Image Paths.....")
 # Discrete each image path into a list
-imagePaths = list(paths.list_images(conf["dataset"]))
+imagePaths = list(list_files(rootPath="my_dataset"))
+print(imagePaths)
 
 knownEmbeddings = []
 knownNames = []
@@ -37,7 +32,7 @@ for (i, imagePath) in enumerate(imagePaths):
     # Extract name of the image
     name = imagePath.split(os.path.sep)[-2]
     image = cv2.imread(imagePath)
-    image = imutils.resize(image, width=600)
+    image = cv2.resize(image, dsize=(750, 600))
     # Height and Width
     (h, w) = image.shape[:2]
 
@@ -55,7 +50,7 @@ for (i, imagePath) in enumerate(imagePaths):
         confidence = detections[0, 0, i, 2]
 
         # Proceed if detected face confidence is above min_confidence
-        if confidence > conf["min_confidence"]:
+        if confidence > MIN_CONFIDENCE:
             # Bounding box of face detected
             box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
             (startX, startY, endX, endY) = box.astype("int")
@@ -86,7 +81,7 @@ print("[EXEC] Collecting {} encodings vectors...".format(total))
 data = {"embeddings": knownEmbeddings, "names": knownNames}
 
 # Save the embedding to a file
-f = open(conf["embeddings"], "wb")
+f = open("output/embeddings.pickle", "wb")
 f.write(pickle.dumps(data))
 f.close()
 
