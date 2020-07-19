@@ -72,7 +72,7 @@ export TWILIO_AUTH_TOKEN='COPY_TWILIO_AUTH_TOKEN'
 
 
 - This will make sure twilio whatsapp API to work properly on our local-machine. For TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN refer [Twilio Console](https://www.twilio.com/console)(Create twilio account if not created already)
-- Also change the `TO_NUMBER` instance variable value to the phone number you wish to recieve msg on.
+- Also change the `TO_NUMBER` instance variable value inside `faceRecognition_notification.py` to the phone number you wish to recieve msg on.
 - You first need to connect that number to twilio via [Twilio Testing Sandbox](https://www.twilio.com/console/sms/whatsapp/learn)(see: Set Up Your Testing Sandbox)
 
 - Once all the setup is done run the following in sequence:
