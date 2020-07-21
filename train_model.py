@@ -4,7 +4,7 @@ from sklearn.svm import SVC
 import pickle
 import json
 
-print("[EXEC] Loading face embeddings...")
+print("[EXEC] Loading face embeddings....")
 data = pickle.loads(open("output/embeddings.pickle", "rb").read())
 
 # Encode the labels
