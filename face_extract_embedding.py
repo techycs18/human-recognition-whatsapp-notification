@@ -8,8 +8,10 @@ MIN_CONFIDENCE = 0.55
 
 # Load the OpenCV’s Caffe-based deep learning face detector model
 print("[EXEC] Loading face detector model...")
-detector = cv2.dnn.readNetFromCaffe("face_detection_model/deploy.prototxt",
-                                    "face_detection_model/res10_300x300_ssd_iter_140000.caffemodel")
+detector = cv2.dnn.readNetFromCaffe(
+    "face_detection_model/deploy.prototxt",
+    "face_detection_model/res10_300x300_ssd_iter_140000.caffemodel")
+
 
 # Load the embbeder model to extract a 128-D facial embedding vector
 # It contains the OpenCV deep learning Torch embedding model.
@@ -36,9 +38,11 @@ for (i, imagePath) in enumerate(imagePaths):
     # Height and Width
     (h, w) = image.shape[:2]
 
-    # Pre-process image by Mean subtraction, Resize and scaling by some factor
-    imageBlob = cv2.dnn.blobFromImage(cv2.resize(image, (300, 300)), 1.0, (300, 300),
-                                      (104.0, 177.0, 123.0), swapRB=False, crop=False)
+    # Pre-process image by Mean subtraction, Resize and scaling by some
+    # factor
+    imageBlob = cv2.dnn.blobFromImage(cv2.resize(image, (300, 300)), 1.0,
+                                      (300, 300),(104.0, 177.0, 123.0),
+                                      swapRB=False, crop=False)
     detector.setInput(imageBlob)
     # Detect possible face detection in image with the detector model
     detections = detector.forward()
@@ -64,8 +68,9 @@ for (i, imagePath) in enumerate(imagePaths):
                 continue
 
             # Now we pre-process the our ROI i.e face detected
-            faceBlob = cv2.dnn.blobFromImage(face, 1.0 / 255,
-                                             (96, 96), (0, 0, 0), swapRB=True, crop=False)
+            faceBlob = cv2.dnn.blobFromImage(face, 1.0 / 255, (96, 96),
+                                             (0, 0, 0), swapRB=True,
+                                             crop=False)
 
             # Use embedder model to extract 128-d face embeddings
             embedder.setInput(faceBlob)
