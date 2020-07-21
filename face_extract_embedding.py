@@ -7,7 +7,7 @@ import os
 MIN_CONFIDENCE = 0.55
 
 # Load the OpenCV’s Caffe-based deep learning face detector model
-print("[EXEC] Loading face detector model...")
+print("[EXEC] Loading face detector model....")
 detector = cv2.dnn.readNetFromCaffe(
     "face_detection_model/deploy.prototxt",
     "face_detection_model/res10_300x300_ssd_iter_140000.caffemodel")
@@ -15,7 +15,7 @@ detector = cv2.dnn.readNetFromCaffe(
 
 # Load the embbeder model to extract a 128-D facial embedding vector
 # It contains the OpenCV deep learning Torch embedding model.
-print("[EXEC] Loading face recognizer model...")
+print("[EXEC] Loading face recognizer model....")
 embedder = cv2.dnn.readNetFromTorch("openface_nn4.small2.v1.t7")
 
 print("[EXEC] Reading Image Paths.....")
