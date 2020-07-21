@@ -4,7 +4,7 @@ import os
 def list_files(rootPath, validExtensions=(".jpg", ".jpeg", ".png")):
     # loop over the directory structure
     for (rootDir, dirNames, filenames) in os.walk(rootPath):
-        # loop over the filenames in the current directory
+        # loop over every file in the current directory
         for filename in filenames:
 
             # determine the file extension of the current file
