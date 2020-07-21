@@ -36,31 +36,37 @@ class Activities:
 
         # Load OpenCV’s Caffe-based deep learning face detector model
         print("[EXEC] Loading face detector...")
-        self.detector = cv2.dnn.readNetFromCaffe("face_detection_model/deploy.prototxt",
-                                                 "face_detection_model"
-                                                 "/res10_300x300_ssd_iter_140000.caffemodel")
+        self.detector = cv2.dnn.readNetFromCaffe(
+            "face_detection_model/deploy.prototxt",
+            "face_detection_model"
+            "/res10_300x300_ssd_iter_140000.caffemodel")
 
         # Load our face embeddings
         print("[EXEC] loading face embeddings...")
-        self.embedder = cv2.dnn.readNetFromTorch("openface_nn4.small2.v1.t7")
+        self.embedder = cv2.dnn.readNetFromTorch(
+            "openface_nn4.small2.v1.t7")
 
         # Load the recogniser model
         print("[EXEC] loading face recognizer...")
-        self.recognizer = pickle.loads(open("output/recognizer.pickle", "rb").read())
+        self.recognizer = pickle.loads(open("output/recognizer.pickle",
+                                            "rb").read())
 
         # Load the Label encoder
         self.le = pickle.loads(open("output/le.pickle", "rb").read())
 
     # save the captured frame in a file
     def store_frame(self, get_name, op_frame):
-        p = os.path.sep.join(["motions_caught", "{}.png".format(str(get_name).capitalize())])
+        p = os.path.sep.join(["motions_caught", "{}.png".format(
+            str(get_name).capitalize())])
         cv2.imwrite(p, op_frame)
         print("Whatsapp message sent")
 
     # send whatsapp message to specific number via TWILIO API
     def send_message(self, get_name, timestamp):
         self.client.messages.create(
-            body='Last seen: {} \n@ {}'.format(str(get_name).upper(), str(timestamp.strftime("%d %B %Y %I:%M%p"))),
+            body='Last seen: {} \n@ {}'.format(
+                str(get_name).upper(),
+                str(timestamp.strftime("%d %B %Y %I:%M%p"))),
             from_=self.FROM_NUMBER,
             to=self.TO_NUMBER
         )
@@ -90,9 +96,12 @@ while True:
     # Height and width of the frame
     (h, w) = frame.shape[:2]
 
-    # Pre-process image by Mean subtraction, Resize and scaling by some factor
-    imageBlob = cv2.dnn.blobFromImage(cv2.resize(frame, (300, 300)), 1.0, (300, 300),
-                                      (104.0, 177.0, 123.0), swapRB=False, crop=False)
+    # Pre-process image by Mean subtraction, Resize and
+    # scaling by some factor
+    imageBlob = cv2.dnn.blobFromImage(cv2.resize(frame, (300, 300)),
+                                      1.0, (300, 300),
+                                      (104.0, 177.0, 123.0),
+                                      swapRB=False, crop=False)
     activity.detector.setInput(imageBlob)
     # Detect possible face detection in image with the detector model
     detections = activity.detector.forward()
@@ -111,7 +120,9 @@ while True:
             if fW < 20 or fH < 20:
                 continue
             # Now we pre-process the our ROI i.e face detected
-            faceBlob = cv2.dnn.blobFromImage(face, 1.0 / 255, (96, 96), (0, 0, 0), swapRB=True, crop=False)
+            faceBlob = cv2.dnn.blobFromImage(face, 1.0 / 255,
+                                             (96, 96), (0, 0, 0),
+                                             swapRB=True, crop=False)
             # Use embedder model to extract 128-d face embeddings
             activity.embedder.setInput(faceBlob)
             vec = activity.embedder.forward()
@@ -128,30 +139,37 @@ while True:
             text = "{}: {:.2f}%".format(name, proba * 100)
             y = startY - 10 if startY - 10 > 10 else startY + 10
             # Draw bounding box
-            cv2.rectangle(frame, (startX, startY), (endX, endY), (0, 0, 255), 2)
-            cv2.putText(frame, text, (startX, y), cv2.FONT_HERSHEY_SIMPLEX, 0.45, (0, 0, 255), 2)
+            cv2.rectangle(frame, (startX, startY), (endX, endY),
+                          (0, 0, 255), 2)
+            cv2.putText(frame, text, (startX, y), cv2.FONT_HERSHEY_SIMPLEX,
+                        0.45, (0, 0, 255), 2)
             ts = curr_timestamp.strftime("%A %d %B %Y %I:%M:%S%p")
             text = "Motion detected"
-            cv2.putText(frame, "{}".format(text), (10, 20), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
-            cv2.putText(frame, ts, (10, frame.shape[0] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.35, (0, 0, 255), 1)
+            cv2.putText(frame, "{}".format(text), (10, 20),
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
+            cv2.putText(frame, ts, (10, frame.shape[0] - 10),
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.35, (0, 0, 255), 1)
 
             if name == "unknown":
                 continue
                 # For first frame recog or appear after 8 mins
                 # send whatsapp notification
-            elif activity.details_json[name]["captures"] == 0 or (activity.details_json[name]['timestamp'] - curr_timestamp).total_seconds() >= activity.min_time_gap:
+            elif activity.details_json[name]["captures"] == 0 or \
+                    (activity.details_json[name]['timestamp'] -
+                     curr_timestamp).total_seconds() >= \
+                    activity.min_time_gap:
                 # start new thread and call store_frame function
 
                 # to keep track of captured
-                activity.details_json[name]["captures"] = activity.details_json[name]["captures"] + 1
-                threading.Thread(target=activity.send_message(get_name=name, timestamp=curr_timestamp)).start()
-                threading.Thread(target=activity.store_frame(op_frame=frame, get_name=name)).start()
+                activity.details_json[name]["captures"] = \
+                    activity.details_json[name]["captures"] + 1
+                threading.Thread(target=activity.send_message(
+                    get_name=name, timestamp=curr_timestamp)).start()
+                threading.Thread(target=activity.store_frame(
+                    op_frame=frame, get_name=name)).start()
 
-                #change the timestamp when the frame was captured
+                # change the timestamp when the frame was captured
                 activity.details_json[name]['timestamp'] = curr_timestamp
-
-
-
 
     # show the current videostram or not
     if activity.show_video:
